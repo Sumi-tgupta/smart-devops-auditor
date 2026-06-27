@@ -1,0 +1,47 @@
+{
+  "server_name": "smart-devops-auditor-fs",
+  "version": "1.0.0",
+  "description": "Read-only filesystem MCP server locked to sandbox directory",
+
+  "security": {
+    "sandbox_root": "./sandbox-repo",
+    "allow_symlinks": false,
+    "allow_hidden_files": false,
+    "max_file_size_kb": 512,
+    "allowed_extensions": [".py", ".js", ".ts", ".env", ".yaml", ".yml", ".json", ".txt", ".md"]
+  },
+
+  "tools": {
+    "list_directory": {
+      "enabled": true,
+      "description": "List files in a directory within the sandbox",
+      "max_depth": 3
+    },
+    "read_file": {
+      "enabled": true,
+      "description": "Read file content within the sandbox",
+      "max_size_kb": 512
+    },
+    "get_file_stats": {
+      "enabled": true,
+      "description": "Get file metadata (size, modified date, line count)"
+    },
+    "write_file": {
+      "enabled": false,
+      "description": "DISABLED — agents have no write access"
+    },
+    "delete_file": {
+      "enabled": false,
+      "description": "DISABLED — agents have no delete access"
+    },
+    "execute_command": {
+      "enabled": false,
+      "description": "DISABLED — no shell execution allowed"
+    }
+  },
+
+  "rate_limits": {
+    "max_files_per_scan": 50,
+    "max_total_size_kb": 10240
+  }
+}

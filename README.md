@@ -46,7 +46,7 @@ smart-devops-auditor/
 │   ├── test_skills.py    # Secret redaction & diff formatter tests
 │   └── test_pipeline.py  # Mocked sequential orchestration tests
 ├── main.py               # CLI scanner entrypoint
-└── .env                  # Environment keys & sandbox root settings
+└── .env.example                  # Environment keys & sandbox root settings
 ```
 
 ---
